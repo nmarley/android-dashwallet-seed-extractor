@@ -1,0 +1,17 @@
+{
+  "name": "android-dashwallet-seed-extractor",
+  "version": "0.0.1",
+  "description": "DashWallet for Android Backup Mnemonic Seed Recovery",
+  "author": "nmarley",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nmarley/android-dashwallet-seed-extractor"
+  },
+  "engines": {
+    "node": "^6.x.x"
+  },
+  "dependencies": {
+    "protobufjs": "^6.8.0"
+  }
+}
