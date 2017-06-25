@@ -14,6 +14,13 @@ RUN apt-get install -y nodejs
 WORKDIR /app
 COPY . /app/
 RUN npm i
+COPY index.html wallet.proto webpack.config.js testo.js /app/
+COPY ./test /app/test/
+COPY ./src /app/src/
+
+# RUN npm run build
+VOLUME /app/dist
 
 RUN /bin/echo set -o vi >> /etc/profile
-CMD ["/bin/bash", "--rcfile", "/etc/profile"]
+# CMD ["/bin/bash", "--rcfile", "/etc/profile"]
+CMD ["/usr/bin/npm", "run", "build"]

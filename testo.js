@@ -17,7 +17,6 @@ function dump_obj(obj) {
   return null;
 }
 
-
 var backup_file = process.argv[2];
 if (!backup_file) {
   console.log("ERROR: no backup file given.");
@@ -25,9 +24,11 @@ if (!backup_file) {
   process.exit(2);
 }
 
-protobuf.load("wallet.proto", function(err, root) {
-  if (err)
-    throw err;
+// protobuf.load("wallet.proto", function(err, root) {
+  // if (err)
+  //   throw err;
+var proto = fs.readFileSync("wallet.proto").toString('utf8')
+var root = protobuf.parse(proto).root;
 
   var buffer = fs.readFileSync(backup_file);
 
@@ -49,4 +50,4 @@ protobuf.load("wallet.proto", function(err, root) {
     }
   })
 
-})
+// })
